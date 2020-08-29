@@ -110,4 +110,10 @@ form button {
   align-self: flex-end;
   border: 1px solid orange;
   text-transform: uppercase;
+  cursor: pointer;
+  outline: 0;
+}
+.error {
+  color: red;
+  font-size: 0.8rem;
 }

@@ -4,12 +4,35 @@
   <div class="form-control">
     <label for="email">Email</label>
     <input type="text" name="email" />
+    <div class="email error"></div>
   </div>
   <div class="form-control">
     <label for="email">Password</label>
     <input type="password" name="password" />
+    <div class="password error"></div>
   </div>
   <button type="submit" class="btn">Login</button>
 </form>
+<script>
+  const form = document.querySelector("form");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
+    // get values
+    const email = form.email.value;
+    const password = form.password.value;
+
+    try {
+      const res = fetch("/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  });
+</script>
 <%- include('includes/footer'); -%>
