@@ -3,12 +3,12 @@ const app = express();
 require("dotenv").config();
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
+
 const authroute = require("./routes/authRouter");
 const { requireAuth, checkUser } = require("./middleware/authMiddleware");
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-
 app.use(express.json());
 app.use(cookieParser());
 
