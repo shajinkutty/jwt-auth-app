@@ -1,0 +1,16 @@
+{
+  "name": "jwt-auth",
+  "version": "1.0.0",
+  "description": "Authentivation using JWT nodejs",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "shajin",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  }
+}
