@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+ul,
+p {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style-type: none;
+}
+img {
+  width: 100%;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  max-width: 80vw;
+  margin: 0 auto;
+}
+.btn {
+  display: inline-block;
+  background-color: orange;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  margin: 0.2rem 0;
+  border-radius: 3px;
+}
+.btn:hover {
+  opacity: 0.8;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0;
+}
+nav h2 a {
+  font-size: 1.2rem;
+  color: orange;
+}
+
+nav ul {
+  display: flex;
+}
+nav ul li a {
+  background-color: orange;
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border-radius: 5px;
+}
+nav ul li a:hover {
+  opacity: 0.8;
+}
+header {
+  width: 800px;
+  height: 100%;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  padding: 1rem;
+  object-fit: cover;
+}
+.header {
+  background-color: #fff;
+  margin-top: 2rem;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  margin: 5rem auto;
+}
+form h2 {
+  color: orange;
+}
+form .form-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+form .form-control label {
+  font-size: 0.8rem;
+  color: grey;
+  margin-bottom: 0.5rem;
+}
+form .form-control input {
+  padding: 0.8rem 1rem;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+form .form-control input:focus {
+  outline-color: orange;
+}
+form button {
+  align-self: flex-end;
+  border: 1px solid orange;
+  text-transform: uppercase;
+}
