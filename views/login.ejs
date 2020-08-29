@@ -7,7 +7,7 @@
     <div class="email error"></div>
   </div>
   <div class="form-control">
-    <label for="email">Password</label>
+    <label for="password">Password</label>
     <input type="password" name="password" />
     <div class="password error"></div>
   </div>
@@ -22,16 +22,31 @@
     const email = form.email.value;
     const password = form.password.value;
 
+    const emailError = document.querySelector(".email");
+    const passwordError = document.querySelector(".password");
+
+    // reset error message
+    emailError.textContent = "";
+    passwordError.textContent = "";
     try {
-      const res = fetch("/login", {
+      const res = await fetch("/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
       });
+      const data = await res.json();
+      console.log(data);
+      if (data.errors) {
+        emailError.textContent = data.errors.email;
+        passwordError.textContent = data.errors.password;
+      }
+      if (data.userId) {
+        location.assign("/cocktails");
+      }
     } catch (error) {
-      console.log(error);
+      console.log("error", error);
     }
   });
 </script>

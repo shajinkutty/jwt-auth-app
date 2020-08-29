@@ -4,14 +4,17 @@
   <div class="form-control">
     <label for="name">Name</label>
     <input type="text" name="name" />
+    <div class="name error"></div>
   </div>
   <div class="form-control">
     <label for="email">Email</label>
     <input type="text" name="email" />
+    <div class="email error"></div>
   </div>
   <div class="form-control">
     <label for="password">Password</label>
     <input type="password" name="password" />
+    <div class="password error"></div>
   </div>
   <button type="submit" class="btn">Signup</button>
 </form>
@@ -26,16 +29,33 @@
     const email = form.email.value;
     const password = form.password.value;
 
+    const nameError = document.querySelector(".name");
+    const emailError = document.querySelector(".email");
+    const passwordError = document.querySelector(".password");
+
+    // reset error message
+    nameError.textContent = "";
+    emailError.textContent = "";
+    passwordError.textContent = "";
     try {
-      const res = fetch("/signup", {
+      const res = await fetch("/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ name, email, password }),
       });
+      const data = await res.json();
+      if (data.errors) {
+        nameError.textContent = data.errors.name;
+        emailError.textContent = data.errors.email;
+        passwordError.textContent = data.errors.password;
+      }
+      if (data.userId) {
+        location.assign("/");
+      }
     } catch (error) {
-      console.log(error);
+      console.log("error", error);
     }
   });
 </script>
